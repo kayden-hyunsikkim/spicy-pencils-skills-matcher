@@ -5,7 +5,7 @@ const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 
-const sequelize = require('./config/connection');
+const Sequelize = require('./config/connection');
 
 // Create a new sequelize store using the express-session package
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -37,6 +37,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
+
+const sequelize = new Sequelize(process.env.CLEARDB_DATABASE_URL);
+
+// Test the database connection
+sequelize
+  .authenticate()
+  .then(() => console.log('Database connection has been established successfully.'))
+  .catch(err => console.error('Unable to connect to the database:', err));
 
 app.listen(PORT, () => console.log(`Now listening on PORT`));
 
