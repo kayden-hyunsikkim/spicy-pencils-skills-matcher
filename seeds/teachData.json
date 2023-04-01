@@ -1,0 +1,17 @@
+[
+  {
+    "name": "CSS",
+    "level": "Novice",
+    "description": "I am a web development student, but I've gotten pretty good at CSS!"
+  },
+  {
+    "name": "HTML",
+    "level": "Intermediate",
+    "description": "I am a freelance web developer, and have been doing front end web development for 4 years."
+  },
+  {
+    "name": "JS",
+    "level": "Expert",
+    "description": "I am a software developer with over 10 years of JavaScript experience."
+  }
+]
