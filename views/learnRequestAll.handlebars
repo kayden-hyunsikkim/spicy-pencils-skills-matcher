@@ -1,0 +1,17 @@
+{{#each canLearn as |learn| }}
+<div class="mb-5">
+  <div>
+    <h2>
+      <a href="/learn/{{learn.id}}">{{user.name}}</a>
+    </h2>
+    <p><strong>{{name}}</strong></p>
+    <p>Created by {{learn.user.name}} on {{format_date learn.date_created}}</p>
+  </div>
+  <div>
+    <p>
+      {{learn.description}}
+    </p>
+    <a class="btn btn-primary" href="/learn/{{learn.id}}" role="button">View Learner</a>
+  </div>
+</div>
+{{/each}}

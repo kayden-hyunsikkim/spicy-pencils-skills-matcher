@@ -1,0 +1,89 @@
+<div class="row">
+  <div class="col-auto">
+    <h2>Welcome, {{name}}!</h2>
+  </div>
+</div>
+
+<div class="row mt-5">
+  <div class="col-md-6 mb-3">
+    <form class="form teach-project-form">
+      <div class="form-group">
+        <label for="teach-name">Insert a Skill You Can Teach:</label>
+        <input type="text" class="form-control" id="teach-name" name="teach-name" />
+      </div>
+      <div class="form-group">
+        <label for="teach-level">My Skill Level:</label>
+        <select class="form-control" id="teach-level" name="teach-level">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="teach-desc">Description:</label>
+        <textarea class="form-control" id="teach-desc" name="teach-desc"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+  </div>
+  <div class="col-md-6 mb-3">
+    <form class="form learn-project-form">
+      <div class="form-group">
+        <label for="learn-name">Insert a Skill You Want To Learn:</label>
+        <input type="text" class="form-control" id="learn-name" name="learn-name" />
+      </div>
+      <div class="form-group">
+        <label for="learn-level">My Skill Level:</label>
+        <select class="form-control" id="learn-level" name="learn-level">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="learn-desc">Description:</label>
+        <textarea class="form-control" id="learn-desc" name="learn-desc"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+  </div>
+</div>
+
+{{#if teaches.length}}
+<div class="mt-5 teach-list">
+  <h3>Skills I Want To Teach</h3>
+  <div class="list-group">
+    {{#each teaches as |teach|}}
+    <div class="list-group-item">
+      <div class="d-flex w-100 justify-content-between">
+        <h4 class="mb-1"><a href="/teach/{{teach.id}}">{{teach.name}}</a></h4>
+        <button type="button" class="btn btn-danger" teach-id="{{teach.id}}">DELETE</button>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
+{{/if}}
+
+{{#if learns.length}}
+<div class="mt-5 learn-list">
+  <h3>Skills I Want To Learn</h3>
+  <div class="list-group">
+    {{#each learns as |learn|}}
+    <div class="list-group-item">
+      <div class="d-flex w-100 justify-content-between">
+        <h4 class="mb-1"><a href="/learn/{{learn.id}}">{{learn.name}}</a></h4>
+        <button type="button" class="btn btn-danger" learn-id="{{learn.id}}">DELETE</button>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
+{{/if}}
+
+<script src="./js/addTeachRequest.js"></script>
+<script src="./js/addLearnRequest.js"></script>

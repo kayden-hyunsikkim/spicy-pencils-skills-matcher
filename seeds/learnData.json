@@ -1,0 +1,18 @@
+[
+    {
+      "name": "CSS",
+      "level": "Intermediate",
+      "description": "I am a web development student who wants to take my CSS knowledge to the next level. "
+    },
+    {
+      "name": "HTML",
+      "level": "Expert",
+      "description": "I am an experienced back end web developer who wants to learn more about front end web development."
+    },
+    {
+      "name": "JS",
+      "level": "Advanced",
+      "description": "I have been a primarily HTML and CSS developer for over 15 years, and have decided I want to learn about JavaScript."
+    }
+  ]
+  
