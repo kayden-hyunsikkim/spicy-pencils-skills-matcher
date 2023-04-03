@@ -1,59 +1,121 @@
-  {{#if matchedLearnObj}}
-<div class="row">
-  <div class="col-auto">
-    <h2>Here are your matches, {{user.name}}!</h2>
-  </div>
-</div>
-
-
-
-<div class="row mt-5">
-  <div class="col-md-6">
-    <h4 class="pb-2">You can learn from the below users:</h4>
-
-
-
-    {{#each matchedLearnObj as |learn|}}
-
-    <div class="border p-3 mb-4">
-      <div>
-        <h2>
-          <a href="/teach/{{learn.id}}">{{user.name}}</a>
-        </h2>
-        <p><strong>I want to learn: {{learn.name}}</strong></p>
+{{#if matchedLearnObj}}
+ {{#if matchedTeachObj}}
+      <div class="row">
+        <div class="col-auto">
+          <h2>Here are your matches, {{user.name}}!</h2>
+        </div>
       </div>
-      <div>
-        <p>{{learn.description}}</p>
-        <button type="button" class="btn btn-primary" href="/teach/{{learn.id}}">Contact</button>
-      </div>
-    </div>
-    {{/each}}
-  </div>
-  {{/if}}
-  
-  {{#if matchedTeachObj}}
-  <div class="col-md-6">
-    <h4 class="pb-2">You can teach the below users:</h4>
 
-    {{#each matchedTeachObj as |learn|}}
 
-    <div class="border p-3 mb-4">
-      <div>
-        <h2>
-          <a href="/teach/{{learn.id}}">{{user.name}}</a>
-        </h2>
-        <p>I want to teach: {{learn.name}}</p>
+
+      <div class="row mt-5">
+        <div class="col-md-6">
+          <h4 class="pb-2">You can learn from the below users:</h4>
+
+
+
+          {{#each matchedLearnObj as |learn|}}
+
+          <div class="border p-3 mb-4">
+            <div>
+              <h2>
+                <a href="/teach/{{learn.id}}">{{user.name}}</a>
+              </h2>
+              <p><strong>I want to learn: {{learn.name}}</strong></p>
+            </div>
+            <div>
+              <p>{{learn.description}}</p>
+              <button type="button" class="btn btn-primary" href="/teach/{{learn.id}}">Contact</button>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+
+        <div class="col-md-6">
+          <h4 class="pb-2">You can teach the below users:</h4>
+
+          {{#each matchedTeachObj as |learn|}}
+
+          <div class="border p-3 mb-4">
+            <div>
+              <h2>
+                <a href="/teach/{{learn.id}}">{{user.name}}</a>
+              </h2>
+              <p>I want to teach: {{learn.name}}</p>
+            </div>
+            <div>
+              <p>
+                {{learn.description}}
+              </p>
+              <button type="button" class="btn btn-primary" href="/teach/{{learn.id}}">Contact</button>
+            </div>
+          </div>
+          {{/each}}
+        </div>
       </div>
-      <div>
-        <p>
-          {{learn.description}}
-        </p>
-        <button type="button" class="btn btn-primary" href="/teach/{{learn.id}}">Contact</button>
-      </div>
-    </div>
-    {{/each}}
-  </div>
-</div>
+
+
+
 {{else}}
-          <h4 class="pb-2">You don't have any matches. Register a skill on the profile page first.</h4>
+      <div class="row">
+        <div class="col-auto">
+          <h2>Here are your matches, {{user.name}}!</h2>
+        </div>
+      </div>
+
+
+
+      <div class="row mt-5">
+        <div class="col-md-6">
+          <h4 class="pb-2">You can learn from the below users:</h4>
+
+
+
+          {{#each matchedLearnObj as |learn|}}
+
+          <div class="border p-3 mb-4">
+            <div>
+              <h2>
+                <a href="/teach/{{learn.id}}">{{user.name}}</a>
+              </h2>
+              <p><strong>I want to learn: {{learn.name}}</strong></p>
+            </div>
+            <div>
+              <p>{{learn.description}}</p>
+              <button type="button" class="btn btn-primary" href="/teach/{{learn.id}}">Contact</button>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+
+  {{/if}}
+
+  {{else}}
+     {{#if matchedTeachObj}}
+        <div class="col-md-6">
+          <h4 class="pb-2">You can teach the below users:</h4>
+
+          {{#each matchedTeachObj as |learn|}}
+
+          <div class="border p-3 mb-4">
+            <div>
+              <h2>
+                <a href="/teach/{{learn.id}}">{{user.name}}</a>
+              </h2>
+              <p>I want to teach: {{learn.name}}</p>
+            </div>
+            <div>
+              <p>
+                {{learn.description}}
+              </p>
+              <button type="button" class="btn btn-primary" href="/teach/{{learn.id}}">Contact</button>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+
+{{else}}
+      <h4 class="pb-2">You don't have any matches. Register a skill on the profile page first.</h4>
+{{/if}}
 {{/if}}

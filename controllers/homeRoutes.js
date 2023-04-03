@@ -5,6 +5,25 @@ const withAuth = require('../utils/auth');
 router.get('/', (req, res) => {
   res.render('homepage');
 });
+
+router.get('/chat/:room', async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+    });
+
+    const current = userData.get({ plain: true });
+    
+    res.render('chatroom', {
+      ...current,
+      logged_in: true,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 // ---------------------------------------------------------DELETE LATER
 router.get('/teach', async (req, res) => {
   try {
@@ -33,7 +52,7 @@ router.get('/teach/:id', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name', 'email', 'mobile', 'communication'],
+          attributes: ['name', 'email', 'mobile', 'communication', 'country'],
         },
       ],
     });
@@ -76,7 +95,7 @@ router.get('/learn/:id', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name', 'email', 'mobile', 'communication'],
+          attributes: ['name', 'email', 'mobile', 'communication', 'country'],
         },
       ],
     });
